@@ -168,8 +168,9 @@
  </section>
  <section class="contact" id="contact">
  <h2 class="heading" data-aos="zoom-in">Contact <span>Me!</span></h2>
- <form action="#">
-  <div class="input-box">
+ <form action="{{route('frontend.contact')}}"  method="post" enctype="multipart/form-data">
+ @csrf
+ <div class="input-box">
     <div class="input-field">
       <input type="text" placeholder="Full Name" name="name" required data-aos="fade-up">
       <span class="focus"></span>
@@ -190,7 +191,7 @@
     </div>
   </div>
   <div class="textarea-field">
-  <textarea name="" id="" cols="30" rows="10" placeholder="Your Message" name="massage" required data-aos="fade-up"></textarea>
+  <textarea name="message" id="message" cols="30" rows="10" placeholder="Your Message" required data-aos="fade-up"></textarea>
   <span class="focus"></span>
   </div>
   <div class="btn-box btns">

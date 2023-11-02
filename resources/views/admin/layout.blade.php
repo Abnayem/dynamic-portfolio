@@ -108,8 +108,8 @@
                         </li>
 
                         <li class="@yield('color_select')">
-                            <a href="{{url('admin/color')}}">
-                            <i class="fa fa-compress" aria-hidden="true"></i>Contact Me!</a>
+                            <a href="{{url('admin/contact')}}">
+                            <i class="fa fa-compress" aria-hidden="true"></i>Contact</a>
                         </li>
 
                         

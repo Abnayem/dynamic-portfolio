@@ -41,12 +41,7 @@ class FrontController extends Controller
 
 
   }
-  public function education(Request $request ,$education)
-  {
-   
-     
-    return view('front.index');
-
-  }
+  
+  
 }
 

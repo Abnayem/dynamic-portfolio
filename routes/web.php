@@ -6,8 +6,9 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\AboutmeController; 
 use App\Http\Controllers\JourneyController; 
 use App\Http\Controllers\MySkillsController; 
-use App\Http\Controllers\ContactController;
+use App\Http\Controllers\ShowContactController; 
 use App\Http\Controllers\frontend\FrontController;
+use App\Http\Controllers\frontend\FrontContactController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -22,13 +23,14 @@ use App\Http\Controllers\frontend\FrontController;
 
 // frontcontroller
 Route::get('/',[FrontController::class,'index']);
-Route::get('education/{id}',[FrontController::class,'education']);
+Route::post('contact',[FrontContactController::class,'contact'])->name('frontend.contact');
 
 // admin controller
 Route::get('admin',[AdminController::class,'index']);
 Route::post('admin/auth',[AdminController::class,'auth'])->name('admin.auth');
 
 Route::get('admin/updatepassword',[AdminController::class,'updatepassword']);
+
 Route::group(['middleware'=>'admin_auth'],function(){
 Route::get('admin/dashboard',[AdminController::class,'dashboard']);
 
@@ -65,12 +67,8 @@ Route::get('admin/skills/delete/{id}',[MySkillsController::class,'delete']);
 Route::get('admin/skills/status/{status}/{id}',[MySkillsController::class,'status']);
 
 // Contact Route
-Route::get('admin/contact',[ContactController::class,'index']);
-Route::get('admin/contact/manage_contact',[ContactController::class,'manage_contact']);
-Route::get('admin/contact/manage_contact/{id}',[ContactController::class,'manage_contact']);
-Route::post('admin/contact/manage_contact_process',[ContactController::class,'manage_contact_process'])->name('contact.manage_contact_process');
-Route::get('admin/contact/delete/{id}',[ContactController::class,'delete']);
-Route::get('admin/contact/status/{status}/{id}',[ContactController::class,'status']);
+
+Route::get('admin/contact',[ShowContactController::class,'index']);
 
 
     Route::get('admin/logout', function () {
